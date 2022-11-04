@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 3D Rotating Image Gallery</title>
+    <style>
+        *{
+            margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+        body{
+            background: linear-gradient(to right , #2c5364 , #0f2027);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }   
+        .box{
+            position: relative;
+            width: 200px;
+
+            height: 200px;
+            transform-style: preserve-3d;
+            animation: rotate 30s linear infinite;
+        } 
+        @keyframes rotate{
+            0%{
+                transform: perspective(1000px) rotatey(0deg);
+            }
+            100%{
+                transform: perspective(1000px) rotateY(360deg);
+            }
+        }
+        .box span{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform-origin: center;
+            transform-style: preserve-3d;
+            transform: rotateY(calc(var(--i)*45deg)) translateZ(350px);
+        }
+        .box span img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 100px;
+            object-fit: cover;
+            transition: 2s;
+        }
+        .box span:hover img{
+            transform: translateY(-50px) scale(1.2);
+        }
+        .head{
+            color: rgb(247, 246, 212);
+            border: 1px solid black;
+            background-color: #0f2027;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        
+        <div class="head">
+            <h1>Marvel Avenger</h1>
+            <p><b>@created by sukhen</b></p>
+        </div>
+      <span style="--i:1;"><img src="iron.jpg" alt=""></span>
+      <span style="--i:2;" ><img src="iron2.jpg" alt=""></span>
+      <span style="--i:3;"><img src="iron3.jpg" alt=""></span>
+      <span style="--i:4;"><img src="iron4.jpg" alt=""></span>
+      <span style="--i:5;" ><img src="iron5.jpg" alt=""></span>
+      <span style="--i:6;" ><img src="iron6.jpg" alt=""></span>
+      <span style="--i:7;" ><img src="iron7.jpg" alt=""></span>
+      <span style="--i:8;"><img src="iron8.jpg" alt=""></span>
+      
+      
+        
+    </div>
+</body>
+
+</html>
